@@ -2,8 +2,8 @@ use logic_form::{Lit, Var};
 use std::fmt::Debug;
 
 pub trait Satif {
-    type Model: SatifModel;
-    type Conflict: SatifConflict;
+    type Sat: SatifSat;
+    type Unsat: SatifUnsat;
 
     fn new() -> Self;
 
@@ -13,27 +13,27 @@ pub trait Satif {
 
     fn add_clause(&mut self, clause: &[Lit]);
 
-    fn solve(&mut self, assumps: &[Lit]) -> SatResult<Self::Model, Self::Conflict>;
+    fn solve(&mut self, assumps: &[Lit]) -> SatResult<Self::Sat, Self::Unsat>;
 }
 
-pub trait SatifModel {
+pub trait SatifSat {
     fn lit_value(&self, lit: Lit) -> Option<bool>;
 }
 
-pub trait SatifConflict {
+pub trait SatifUnsat {
     fn has(&self, lit: Lit) -> bool;
 }
 
-pub enum SatResult<M, C>
+pub enum SatResult<S, U>
 where
-    M: SatifModel,
-    C: SatifConflict,
+    S: SatifSat,
+    U: SatifUnsat,
 {
-    Sat(M),
-    Unsat(C),
+    Sat(S),
+    Unsat(U),
 }
 
-impl<M: SatifModel, C: SatifConflict> Debug for SatResult<M, C> {
+impl<S: SatifSat, U: SatifUnsat> Debug for SatResult<S, U> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Sat(_) => "Sat".fmt(f),
