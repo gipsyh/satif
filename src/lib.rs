@@ -11,7 +11,7 @@ pub trait Satif {
 
     fn new_var_to(&mut self, var: Var) {
         while Var::new(self.num_var()) <= var {
-            self.new_var()
+            self.new_var();
         }
     }
 
