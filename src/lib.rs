@@ -9,6 +9,12 @@ pub trait Satif {
 
     fn new_var(&mut self) -> Var;
 
+    fn new_var_to(&mut self, var: Var) {
+        while Var::new(self.num_var()) <= var {
+            self.new_var()
+        }
+    }
+
     fn num_var(&self) -> usize;
 
     fn add_clause(&mut self, clause: &[Lit]);
