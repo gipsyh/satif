@@ -1,4 +1,4 @@
-use logic_form::{Lit, Var};
+use logic_form::{Clause, Lit, Var};
 
 pub trait Satif {
     fn new() -> Self;
@@ -19,7 +19,19 @@ pub trait Satif {
 
     fn sat_value(&mut self, lit: Lit) -> Option<bool>;
 
-    fn unsat_has(&mut self, lit: Lit) -> bool;
+    fn unsat_has(&mut self, _lit: Lit) -> bool {
+        panic!("unsupport assumption");
+    }
 
-    fn simplify(&mut self);
+    fn simplify(&mut self) {
+        panic!("unsupport simplify");
+    }
+
+    fn set_frozen(&mut self, _var: Var, _frozen: bool) {
+        panic!("unsupport set frozen");
+    }
+
+    fn clauses(&self) -> Vec<Clause> {
+        panic!("unsupport get clauses");
+    }
 }
