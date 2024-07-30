@@ -1,5 +1,4 @@
 use logic_form::{Lit, Var};
-use std::fmt::Debug;
 
 pub trait Satif {
     fn new() -> Self;
