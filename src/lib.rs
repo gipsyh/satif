@@ -1,8 +1,6 @@
 use logic_form::{Clause, Lit, Var};
 
 pub trait Satif {
-    fn new() -> Self;
-
     fn new_var(&mut self) -> Var;
 
     fn new_var_to(&mut self, var: Var) {
