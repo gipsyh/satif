@@ -1,3 +1,5 @@
+use std::time::Duration;
+
 use logic_form::{Clause, Lit, Var};
 
 pub trait Satif {
@@ -14,6 +16,10 @@ pub trait Satif {
     fn add_clause(&mut self, clause: &[Lit]);
 
     fn solve(&mut self, assumps: &[Lit]) -> bool;
+
+    fn solve_with_limit(&mut self, _assumps: &[Lit], _limit: Duration) -> Option<bool> {
+        panic!("unsupport solve with limit");
+    }
 
     fn sat_value(&mut self, lit: Lit) -> Option<bool>;
 
@@ -33,3 +39,5 @@ pub trait Satif {
         panic!("unsupport get clauses");
     }
 }
+
+pub trait Smtif {}
