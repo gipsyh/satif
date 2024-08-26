@@ -27,7 +27,7 @@ pub trait Satif {
         panic!("unsupport assumption");
     }
 
-    fn simplify(&mut self) {
+    fn simplify(&mut self) -> Option<bool> {
         panic!("unsupport simplify");
     }
 
