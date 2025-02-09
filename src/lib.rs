@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use logic_form::{Clause, Lit, Var};
+use logic_form::{Lit, LitVec, Var};
 
 pub trait Satif {
     fn new_var(&mut self) -> Var;
@@ -35,7 +35,7 @@ pub trait Satif {
         panic!("unsupport set frozen");
     }
 
-    fn clauses(&self) -> Vec<Clause> {
+    fn clauses(&self) -> Vec<LitVec> {
         panic!("unsupport get clauses");
     }
 }
