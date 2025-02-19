@@ -21,9 +21,9 @@ pub trait Satif {
         panic!("unsupport solve with limit");
     }
 
-    fn sat_value(&mut self, lit: Lit) -> Option<bool>;
+    fn sat_value(&self, lit: Lit) -> Option<bool>;
 
-    fn unsat_has(&mut self, _lit: Lit) -> bool {
+    fn unsat_has(&self, _lit: Lit) -> bool {
         panic!("unsupport assumption");
     }
 
@@ -39,5 +39,3 @@ pub trait Satif {
         panic!("unsupport get clauses");
     }
 }
-
-pub trait Smtif {}
