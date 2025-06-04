@@ -1,6 +1,6 @@
 [package]
 name = "satif"
-version = "0.2.2"
+version = "0.2.3"
 edition = "2021"
 license = "MIT"
 description = "SAT solver interface"
@@ -10,4 +10,4 @@ authors = ["Yuheng Su <gipsyh.icu@gmail.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-logic-form = { path = "../logic-form", version = "0.3.0" }
+logic-form = { path = "../logic-form", version = "0.4.0" }
