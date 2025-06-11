@@ -20,7 +20,12 @@ pub trait Satif {
         panic!("unsupport solve with constraint");
     }
 
-    fn solve_with_limit(&mut self, _assumps: &[Lit], _limit: Duration) -> Option<bool> {
+    fn solve_with_limit(
+        &mut self,
+        _assumps: &[Lit],
+        _constraint: Vec<LitVec>,
+        _limit: Duration,
+    ) -> Option<bool> {
         panic!("unsupport solve with limit");
     }
 
