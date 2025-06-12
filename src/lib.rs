@@ -12,6 +12,11 @@ pub trait Satif {
 
     fn num_var(&self) -> usize;
 
+    #[inline]
+    fn max_var(&self) -> Var {
+        Var(self.num_var() as u32 - 1)
+    }
+
     fn add_clause(&mut self, clause: &[Lit]);
 
     fn solve(&mut self, assumps: &[Lit]) -> bool;
